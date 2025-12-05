@@ -3,7 +3,7 @@
 // @author       Ally, Rita, Dmcisneros
 // @icon         https://www.liferay.com/o/classic-theme/images/favicon.ico
 // @namespace    https://liferay.atlassian.net/
-// @version      3.5
+// @version      3.6
 // @description  Jira statuses + Patcher, Account tickets and CP Link field + Internal Note highlight
 // @match        https://liferay.atlassian.net/*
 // @updateURL    https://github.com/AllyMech14/liferay-jira-userscript/raw/refs/heads/main/userscript.js
@@ -110,7 +110,7 @@
         if (!accountCode) return null;
 
         // The base JQL query string containing the <CODE> placeholder
-        const jiraFilterByAccountCode = 'https://liferay.atlassian.net/issues/?jql=%22account%20code%5Bshort%20text%5D%22%20~%20%22<CODE>%22%20and%20project%20%3D%20LRHC%20ORDER%20BY%20created%20DESC';
+        const jiraFilterByAccountCode = 'https://liferay.atlassian.net/issues/?jql=%22account%20code%5Bshort%20text%5D%22%20~%20%22<CODE>%22%20and%20project%20IN%20%28%22LRHC%22%2C%22LRFLS%22%29%20ORDER%20BY%20created%20DESC';
 
         // Replace the placeholder <CODE> with the actual account code
         return jiraFilterByAccountCode.replace('<CODE>', accountCode);
@@ -451,14 +451,14 @@
       OPTIONAL FEATURES
       1. Disable JIRA Shortcuts
       2. Open Tickets In a New Tab
-    
+
       How to Use:
       1. Go to TamperMonkey Icon in the browser
       2. Enable/Disable Features
       3. Refresh Jira for changes to change affect
-    
+
       Note: The features are disabled by default.
-    
+
         ===============================================================================
         */
     /*********** TOGGLE MENU ***********/
